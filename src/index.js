@@ -12,6 +12,48 @@ dotenv.config({
 })
 
 connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000 , ()=>{
+        console.log(`Server is runing on port ${process.env.PORT}`)
+    })
+
+    app.on((error)=>{
+        console.log("ERR :",error);
+    })
+
+    //app.on("error", ...) is not an error that occurs during that try block — it's an event listener for errors that may happen later, during the lifetime of the running app.
+})
+.catch((err)=>{
+    console.log("MONGO db connnection failed !!! ",err)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //commenting the below code because i wrote it inside db folder -> index2.js || which is its better version and uses some other features to explore and to make the code clean
 
