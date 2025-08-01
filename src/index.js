@@ -4,8 +4,9 @@
 import dotenv from 'dotenv' 
 import mongoose from 'mongoose'
 import { DB_NAME } from './constants.js';
-//import express from 'express'
+import express from 'express'
 import connectDB from './db/index2.js';
+import { app } from './app.js';
 
 dotenv.config({
     path : './env'
@@ -17,9 +18,9 @@ connectDB()
         console.log(`Server is runing on port ${process.env.PORT}`)
     })
 
-    app.on((error)=>{
-        console.log("ERR :",error);
-    })
+    app.on('error', (error) => {
+        console.log('ERR :', error);
+    });
 
     //app.on("error", ...) is not an error that occurs during that try block — it's an event listener for errors that may happen later, during the lifetime of the running app.
 })
