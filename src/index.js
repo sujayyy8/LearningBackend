@@ -7,6 +7,7 @@ import { DB_NAME } from './constants.js';
 import express from 'express'
 import connectDB from './db/index2.js';
 import { app } from './app.js';
+import { registerUser } from './controllers/user.controller.js';
 
 dotenv.config({
     path : './env'
